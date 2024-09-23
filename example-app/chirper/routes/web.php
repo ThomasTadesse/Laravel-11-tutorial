@@ -5,27 +5,55 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/home', function () {
-    return view('home', [
-       'jobs' => [
-       [
-                'title' => 'Web Developer',
-                'description' => 'We are looking for a web developer to join our team.',
-       ],
-       [
-                'title' => 'Web Designer',
-                'description' => 'We are looking for a web designer to join our team.',
-       ],
-       [
-                 'title' => 'Project Manager',
-                 'description' => 'We are looking for a project manager to join our team.',
-       ],
-    ]
-
-    ]);
+    return view('home');
 });
 
-Route::get('/about', function () {
-    return view('about');
+Route::get('/jobs', function () {
+    return view('jobs', [
+        'jobs' => [
+        [
+                 'id' => 1,
+                 'title' => 'Web Developer',
+                 'description' => 'We are looking for a web developer to join our team.',
+        ],
+        [
+                'id' => 2,
+                 'title' => 'Web Designer',
+                 'description' => 'We are looking for a web designer to join our team.',
+        ],
+        [
+                  'id' => 3,
+                  'title' => 'Project Manager',
+                  'description' => 'We are looking for a project manager to join our team.',
+        ],
+     ]
+     ]);
+});
+
+Route::get('/jobs/{id}', function ($id) {
+    $job = [
+        [
+                 'id' => 1,
+                 'title' => 'Web Developer',
+                 'description' => 'We are looking for a web developer to join our team.',
+        ],
+        [
+                'id' => 2,
+                 'title' => 'Web Designer',
+                 'description' => 'We are looking for a web designer to join our team.',
+        ],
+        [
+                  'id' => 3,
+                  'title' => 'Project Manager',
+                  'description' => 'We are looking for a project manager to join our team.',
+        ],
+     ];
+
+     $job = \Illuminate\Support\Arr :: first($job, fn($job) => $job['id'] == $id);
+
+     dd($job);
+
+
 });
 
 Route::get('/contact', function () {
