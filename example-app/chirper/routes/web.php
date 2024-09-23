@@ -51,7 +51,9 @@ Route::get('/jobs/{id}', function ($id) {
 
      $job = \Illuminate\Support\Arr :: first($job, fn($job) => $job['id'] == $id);
 
-     dd($job);
+        return view('job', [
+            'job' => $job,
+        ]);
 
 
 });
