@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Models;
+use Illuminate\Support\Arr;
+use App\Models\Job;
 
 class Job {
    public static function all(): array
