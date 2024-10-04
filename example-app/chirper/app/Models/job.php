@@ -16,7 +16,7 @@ class Job {
             [
                 'id' => 2,
                 'title' => 'Web Designer',
-                'description' => 'We are looking for a web designer to join our humble team.',
+                'description' => 'We are looking for a web designer to join our team.',
             ],
             [
                 'id' => 3,
