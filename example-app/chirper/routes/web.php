@@ -7,7 +7,11 @@ use Illuminate\Support\Arr;
 use App\Models\Job;
 
 Route::get('/home', function () {
-    return view('home');
+    $jobs = job::all();
+   
+    dd($jobs);
+
+    // return view('home');
 });
 
 Route::get('/jobs', function (){
