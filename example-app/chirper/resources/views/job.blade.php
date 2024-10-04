@@ -5,6 +5,6 @@
     <h2><strong>{{ $job ['title'] }}</strong></h2>
 
     <p>
-        This job requires you to {{ $job['description'] }} .
+        This job requires of you to {{ $job['description'] }} .
     </p>
 </x-layout>
