@@ -20,5 +20,10 @@ class DatabaseSeeder extends Seeder
             'last_name' => 'Doe',
             'email' => 'test@example.com',
         ]);
+
+        Job::factory(100)->create([
+            'title' => 'Software Engineer',
+            'description' => 'Develops software applications',
+        ]);
     }
 }
