@@ -9,7 +9,7 @@ use App\Models\Job;
 class JobSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Run the database seeds as needed.
      */
     public function run(): void
     {
