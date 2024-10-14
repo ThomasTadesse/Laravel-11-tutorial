@@ -43,7 +43,15 @@ Route::get('/jobs/{id}', function ($id){
 });
 
 Route::post('/jobs', function () {
-    dd("Create a new job");
+    // validateion for later...
+
+    Job::create([
+        'title' => request('title'),
+        'description' => request('description'),
+        'employer_id' => 1
+    ]);
+
+    return redirect('/jobs');
 });
 
 
