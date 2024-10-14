@@ -11,7 +11,10 @@ class Job extends Model {
   
   protected $table = 'job_listings';
 
-  protected $fillable = ['title', 'description', 'employer_id'];
+  protected $guarded = [];
+  // protected $fillable = ['title', 'description', 'employer_id'];
+  // guarded is the opposite of fillable - it means that all fields are guarded except for the ones listed in the array.
+  // we use that to protect the fields that we don't want to be mass assignable.
 
   public function employer() {
     return $this->belongsTo(Employer::class);
