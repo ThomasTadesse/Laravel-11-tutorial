@@ -40,7 +40,10 @@ Route::get('/jobs/{id}', function ($id){
         return view('jobs.show', [
             'job' => $job,
         ]);
+});
 
+Route::post('/jobs', function () {
+    dd("Create a new job");
 });
 
 
