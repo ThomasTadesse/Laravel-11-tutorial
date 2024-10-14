@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Employer;
+use App\Models\Job;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -9,18 +11,14 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class JobFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
-    
+    protected $model = Job::class;
+
     public function definition(): array
     {
         return [
-            'title' => fake()->jobTitle(),
-            'employer_id' => Employer::factory(),
-            'description' => fake()->jobDescription()
+            'title' => $this->faker->jobTitle(), // Generates a job title
+            'employer_id' => Employer::factory(), // Links to an Employer
+            'description' => $this->faker->paragraph(), // Generates a paragraph for job description
         ];
     }
 }
