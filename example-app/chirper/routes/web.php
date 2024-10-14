@@ -13,7 +13,7 @@ Route::get('/home', function () {
 
 Route::get('/jobs', function () {
 
-    $jobs = Job::with('employer')->cursorPaginate(3);
+    $jobs = Job::with('employer')->latest()->cursorPaginate(3);
 
     // Paginate shows numbers of pages.
     
@@ -21,6 +21,8 @@ Route::get('/jobs', function () {
 
     // cusorPaginate is used for large data sets 
     // keep in mind that the url will display the entire data set.
+
+    // latest() is used to sort the data in chronological descending order.
 
     return view('jobs.index', [
         'jobs' => $jobs
