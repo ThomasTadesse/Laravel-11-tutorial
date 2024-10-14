@@ -15,9 +15,9 @@ Route::get('/jobs', function () {
 
     $jobs = Job::with('employer')->cursorPaginate(3);
 
-    // Paginate shows numbers of pages
+    // Paginate shows numbers of pages.
     
-    // simplePaginate only shows next and previous buttons
+    // simplePaginate only shows next and previous buttons.
 
     // cusorPaginate is used for large data sets 
     // keep in mind that the url will display the entire data set.
