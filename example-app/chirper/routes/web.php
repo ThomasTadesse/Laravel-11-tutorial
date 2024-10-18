@@ -76,20 +76,12 @@ Route::get('/jobs/{id}/edit', function ($id){
 
 // Update
 Route::patch('/jobs/{id}', function ($id){
-    $job = Job::find($id);
-    
-        return view('jobs.show', [
-            'job' => $job,
-        ]);
+
 });
 
 // Destroy
 Route::delete('/jobs/{id}', function ($id){
-    $job = Job::find($id);
-    
-        return view('jobs.show', [
-            'job' => $job,
-        ]);
+
 });
 
 // keep in mind that get, post, put, patch, delete are all methods that can be used in the routes.
