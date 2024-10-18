@@ -4,7 +4,7 @@
     </x-slot:heading>
     
  
-<form method="POST" action="/jobs">
+<form method="POST" action="/jobs/{{ $job->id }}">
     @csrf
     <!-- create the token to the form. -->
      
