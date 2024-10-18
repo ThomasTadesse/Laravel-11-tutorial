@@ -64,7 +64,7 @@ Route::post('/jobs', function () {
     return redirect('/jobs');
 });
 
-// update
+// Edit
 Route::get('/jobs/{id}/edit', function ($id){
     $job = Job::find($id);
     
@@ -74,6 +74,28 @@ Route::get('/jobs/{id}/edit', function ($id){
 });
 
 
+// Update
+Route::patch('/jobs/{id}', function ($id){
+    $job = Job::find($id);
+    
+        return view('jobs.show', [
+            'job' => $job,
+        ]);
+});
+
+// Destroy
+Route::delete('/jobs/{id}', function ($id){
+    $job = Job::find($id);
+    
+        return view('jobs.show', [
+            'job' => $job,
+        ]);
+});
+
+// keep in mind that get, post, put, patch, delete are all methods that can be used in the routes.
+// so theres no need to use add them at the end of the route.
+// good example: look above.
+// bad example: Route::get('/jobs/{id}/edit', function ($id){
 
 Route::get('/contact', function () {
     return view('contact');
