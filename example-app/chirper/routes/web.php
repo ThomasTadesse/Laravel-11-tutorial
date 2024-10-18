@@ -76,11 +76,33 @@ Route::get('/jobs/{id}/edit', function ($id){
 
 // Update
 Route::patch('/jobs/{id}', function ($id){
+    // validation
+    request()->validate([
+        'title' => ['required', 'min:3'],
+        'description' => ['required'],
+    ]);
+
+    // authorization (on hold for now.)
+
+    $job = Job::findOrFail($id); //nullable
+
+    $job->update([
+        'title' => request('title'),
+        'description' => request('description'),
+    ]);
+
+    return redirect("/jobs/{$job->id}");
 
 });
 
 // Destroy
 Route::delete('/jobs/{id}', function ($id){
+
+    // authorization (on hold for now.)
+
+    Job::findOrFail($id)->delete();
+
+    return redirect('/jobs');   
 
 });
 
