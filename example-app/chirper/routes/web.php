@@ -87,8 +87,6 @@ Route::patch('/jobs/{job}', function (job $job){
 
     // authorization (on hold for now.)
 
-    $job = Job::findOrFail($id); //nullable
-
     $job->update([
         'title' => request('title'),
         'description' => request('description'),
@@ -101,9 +99,7 @@ Route::patch('/jobs/{job}', function (job $job){
 // Destroy
 Route::delete('/jobs/{job}', function (job $job){
 
-    // authorization (on hold for now.)
-
-    Job::findOrFail($id)->delete();
+    ($job)->delete();
 
     return redirect('/jobs');   
 
