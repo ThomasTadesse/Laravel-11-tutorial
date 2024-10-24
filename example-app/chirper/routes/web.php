@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Arr;
 use App\Models\Job;
+use App\Http\Controllers\JobController;
 
 Route::get('/home', function () {
     return view('home');
@@ -13,23 +14,26 @@ Route::get('/home', function () {
 
 
 // index
-Route::get('/jobs', function () {
+Route::get('/jobs', [JobController::class, 'index']);
 
-    $jobs = Job::with('employer')->latest()->cursorPaginate(3);
 
-    // Paginate shows numbers of pages.
+// Route::get('/jobs', function () {
+
+    // $jobs = Job::with('employer')->latest()->cursorPaginate(3);
+
+    // // Paginate shows numbers of pages.
     
-    // simplePaginate only shows next and previous buttons.
+    // // simplePaginate only shows next and previous buttons.
 
-    // cusorPaginate is used for large data sets 
-    // keep in mind that the url will display the entire data set.
+    // // cusorPaginate is used for large data sets 
+    // // keep in mind that the url will display the entire data set.
 
-    // latest() is used to sort the data in chronological descending order.
+    // // latest() is used to sort the data in chronological descending order.
 
-    return view('jobs.index', [
-        'jobs' => $jobs
-     ]);
-});
+    // return view('jobs.index', [
+    //     'jobs' => $jobs
+    //  ]);
+// });
 
 
 // create
