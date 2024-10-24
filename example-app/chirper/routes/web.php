@@ -19,6 +19,7 @@ Route::resource('jobs', JobController::class);
 
 // Route::resource('jobs', JobController::class)
 //     ->only(['index', 'create', 'store', 'show', 'edit', 'update', 'destroy']);
+//     or
 //     ->except(['edit', 'update', 'destroy']);
 
 // only and except, as it says, only allows you to use the methods you want to use.
