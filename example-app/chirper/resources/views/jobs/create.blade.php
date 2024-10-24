@@ -16,9 +16,9 @@
       <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
         <div class="sm:col-span-4">
           <x-form-label for="title"/>Title</x-form-label>
-          
+
           <div class="mt-2">
-          <x-form-input name="title" id="title" placeholder="Software Engineer" required/>
+          <x-form-input name="title" id="title" placeholder="Software Engineer"/>
 
           <x-form-error name="title"></x-form-error>
 
