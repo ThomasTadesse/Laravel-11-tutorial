@@ -39,8 +39,12 @@ Route::get('/jobs/create', function () {
 
 
 // show
-Route::get('/jobs/{id}', function ($id){
-    $job = Job::find($id);
+Route::get('/jobs/{job}', function (job $job){
+   // your parameter name should match the wildcard name.
+   // so in this case: {job} should match $job.
+   // easy.
+   
+
     
         return view('jobs.show', [
             'job' => $job,
