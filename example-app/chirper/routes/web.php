@@ -7,21 +7,9 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Arr;
 use App\Http\Controllers\JobController;
 
-Route::get('/home', function () {
+Route::view('/home', function () {
     return view('home');
 });
-
-
-// Route::controller(JobController::class)->group(function () {
-//     Route::get('/jobs', 'index');
-//     Route::get('/jobs/create', 'create');
-//     Route::get('/jobs/{job}', 'show');
-//     Route::post('/jobs', 'store');
-//     Route::get('/jobs/{job}/edit', 'edit');
-//     Route::patch('/jobs/{job}', 'update');
-//     Route::delete('/jobs/{job}', 'destroy');
-// });
-
 
 Route::resource('jobs', JobController::class);
 // why is this more efficient?
@@ -29,10 +17,14 @@ Route::resource('jobs', JobController::class);
 // even if you remove the JobController class, the resource controller will still work.
 // neat.
 
+// Route::resource('jobs', JobController::class)
+//     ->only(['index', 'create', 'store', 'show', 'edit', 'update', 'destroy']);
+//     ->except(['edit', 'update', 'destroy']);
 
-Route::get('/contact', function () {
-    return view('contact');
-});
+// only and except, as it says, only allows you to use the methods you want to use.
+
+
+Route::view('/contact','contact');
 
 
 
