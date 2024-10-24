@@ -12,18 +12,22 @@ Route::get('/home', function () {
 });
 
 
-Route::controller(JobController::class)->group(function () {
-    Route::get('/jobs', 'index');
-    Route::get('/jobs/create', 'create');
-    Route::get('/jobs/{job}', 'show');
-    Route::post('/jobs', 'store');
-    Route::get('/jobs/{job}/edit', 'edit');
-    Route::patch('/jobs/{job}', 'update');
-    Route::delete('/jobs/{job}', 'destroy');
-});
+// Route::controller(JobController::class)->group(function () {
+//     Route::get('/jobs', 'index');
+//     Route::get('/jobs/create', 'create');
+//     Route::get('/jobs/{job}', 'show');
+//     Route::post('/jobs', 'store');
+//     Route::get('/jobs/{job}/edit', 'edit');
+//     Route::patch('/jobs/{job}', 'update');
+//     Route::delete('/jobs/{job}', 'destroy');
+// });
 
 
-
+Route::resource('jobs', JobController::class);
+// why is this more efficient?
+// because it allows you to create a resource controller with a single line of code.
+// even if you remove the JobController class, the resource controller will still work.
+// neat.
 
 
 Route::get('/contact', function () {
