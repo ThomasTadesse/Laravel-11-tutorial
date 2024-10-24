@@ -17,25 +17,6 @@ Route::get('/home', function () {
 Route::get('/jobs', [JobController::class, 'index']);
 
 
-// Route::get('/jobs', function () {
-
-    // $jobs = Job::with('employer')->latest()->cursorPaginate(3);
-
-    // // Paginate shows numbers of pages.
-    
-    // // simplePaginate only shows next and previous buttons.
-
-    // // cusorPaginate is used for large data sets 
-    // // keep in mind that the url will display the entire data set.
-
-    // // latest() is used to sort the data in chronological descending order.
-
-    // return view('jobs.index', [
-    //     'jobs' => $jobs
-    //  ]);
-// });
-
-
 // create
 Route::get('/jobs/create', function () {
     return view('jobs.create');
