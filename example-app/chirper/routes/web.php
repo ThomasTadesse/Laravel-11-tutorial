@@ -69,8 +69,7 @@ Route::post('/jobs', function () {
 });
 
 // Edit
-Route::get('/jobs/{id}/edit', function ($id){
-    $job = Job::find($id);
+Route::get('/jobs/{job}/edit', function (job $job){
     
         return view('jobs.edit', [
             'job' => $job,
@@ -79,7 +78,7 @@ Route::get('/jobs/{id}/edit', function ($id){
 
 
 // Update
-Route::patch('/jobs/{id}', function ($id){
+Route::patch('/jobs/{job}', function (job $job){
     // validation
     request()->validate([
         'title' => ['required', 'min:3'],
@@ -100,7 +99,7 @@ Route::patch('/jobs/{id}', function ($id){
 });
 
 // Destroy
-Route::delete('/jobs/{id}', function ($id){
+Route::delete('/jobs/{job}', function (job $job){
 
     // authorization (on hold for now.)
 
@@ -114,6 +113,9 @@ Route::delete('/jobs/{id}', function ($id){
 // so theres no need to use add them at the end of the route.
 // good example: look above.
 // bad example: Route::get('/jobs/{id}/edit', function ($id){
+
+
+
 
 Route::get('/contact', function () {
     return view('contact');
