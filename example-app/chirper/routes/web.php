@@ -82,7 +82,7 @@ Route::patch('/jobs/{id}', function ($id){
         'description' => ['required'],
     ]);
 
-    // authorization (on hold for now.)
+    // authorization on hold for now.
 
     $job = Job::findOrFail($id); //nullable
 
