@@ -7,9 +7,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Arr;
 use App\Http\Controllers\JobController;
 
-Route::view('/home', function () {
-    return view('home');
-});
+Route::view('/home', 'home');
 
 Route::resource('jobs', JobController::class);
 // why is this more efficient?
