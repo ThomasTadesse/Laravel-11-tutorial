@@ -30,6 +30,8 @@ Route::view('/contact','contact');
 Route::get('/register',[RegisteredUserController::class, 'create']);
 Route::post('/register',[RegisteredUserController::class, 'store']);
 
+Route::get('/login', [SessionController::class, 'create']);
+
 
 
 // Route::get('/login', function () {
