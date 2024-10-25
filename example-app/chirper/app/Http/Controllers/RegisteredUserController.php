@@ -17,13 +17,12 @@ class RegisteredUserController extends Controller
        request()->validate([
            'first_name'         => ['required'],
             'last_name'         => ['required'],
-            'email'             => ['required', 'email', 'max:254'],
-            'email_verified_at' => ['required', 'date'],
-            'password'          => ['required'],
-            'remember_token'    => ['nullable'],
+            'email'             => ['required', 'email'],   // email_confirmation
+            'password'          => ['required', Password::min(8), 'confirmed'],  // password_confirmation
        ]);
 
        // create user
+       
 
        // log in
 
