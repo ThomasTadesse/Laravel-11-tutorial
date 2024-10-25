@@ -28,6 +28,7 @@ Route::view('/contact','contact');
 
 // Auth
 Route::get('/register',[RegisteredUserController::class, 'create']);
+Route::post('/register',[RegisteredUserController::class, 'store']);
 
 
 
