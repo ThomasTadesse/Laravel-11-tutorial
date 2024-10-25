@@ -8,6 +8,6 @@ class RegisteredUserController extends Controller
 {
     public function create()
     {
-        dd('sup');
+        return view('auth.register');
     }
 }
