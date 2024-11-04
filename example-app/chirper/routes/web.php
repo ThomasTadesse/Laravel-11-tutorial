@@ -1,16 +1,21 @@
 <?php
-
-
 use App\Http\Controllers\ChirpController;
 use App\Http\Controllers\ProfileController;
+
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Arr;
+
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\SessionController;
 
 Route::get('test', function () {
-    return new App\Mail\JobPosted();
+    \Illuminate\Support\Facades\Mail::to('328704@student.mboutrecht.nl')->send(
+        new \App\Mail\JobPosted()
+    );
+
+    return 'Mail sent';
 });
 
 
