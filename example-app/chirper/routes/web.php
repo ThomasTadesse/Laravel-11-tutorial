@@ -10,6 +10,15 @@ use App\Http\Controllers\JobController;
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\SessionController;
 
+Route::get('test', function () {
+
+    dispatch(function () {
+        logger('Hello from the queue');
+    })->delay(5);
+    
+    return 'welcome';
+});
+
 
 Route::view('/home', 'home');
 
