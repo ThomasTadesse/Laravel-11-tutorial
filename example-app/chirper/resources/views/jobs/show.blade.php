@@ -8,9 +8,11 @@
         This job requires of you to {{ $job->description }} .
     </p>
 
-    <p class="mt-6">
-        <x-button href="/jobs/{{ $job->id }}/edit">Edit Job</x-button>
-    </p>
+    @can('edit-job', $job)
+        <p>
+            <a href="/jobs/{{ $job->id }}/edit">Edit Job</a>
+        </p>
+    @endcan
 
 
 </x-layout>

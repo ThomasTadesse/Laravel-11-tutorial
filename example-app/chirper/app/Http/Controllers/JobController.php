@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Job;
 use App\Models\Employer;
 use App\Models\User;
+use App\Providers\Gate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -66,20 +67,8 @@ class JobController extends Controller
     public function edit(job $job)
     {
 
-        Gate::define('edit-job', function (User $user, Job $job) {
-            return $job->employer->user->is($user);
-        });
-
-
-        if (Auth::guest()) {
-            return redirect('/login');
-        }
-
         Gate::authorize('edit-job', $job);
         // The authorize method will run with the logic associated with the name that you reference. 
-
-       
-
 
         return view('jobs.edit', ['job' => $job,]);
     }
