@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 class SessionController extends Controller
 {
@@ -21,10 +22,14 @@ class SessionController extends Controller
         ]);
 
         // attempt login
-        Auth::attempt($attributes);
+        // if it fails, the following code will run
+        if (!Auth::attempt($attributes)) {
+            throw ValidationException::withMessages([
+                'email' => 'Your provided credentials could not be verified.',
+            ]);
+        }
 
         // regenerate session token
-        // Happy
         request()->session()->regenerate();
 
         // redirect
