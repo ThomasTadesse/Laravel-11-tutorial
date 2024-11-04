@@ -9,6 +9,11 @@ use App\Http\Controllers\JobController;
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\SessionController;
 
+Route::get('test', function () {
+    return new App\Mail\JobPosted();
+});
+
+
 Route::view('/home', 'home');
 
 // Route::resource('jobs', JobController::class)->only(['index', 'show']);
