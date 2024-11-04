@@ -34,7 +34,13 @@
 
             @auth
 
-            <x-nav-link href="/logout">Log out</x-nav-link>
+            <!-- <x-nav-link href="/logout">Log out</x-nav-link> 
+            loging out should be a form submission, not a link. -->
+
+            <form method="POST" action="/logout">
+                @csrf
+              <x-form-button>Log Out</x-form-button>
+            </form>
 
             @endauth
 
