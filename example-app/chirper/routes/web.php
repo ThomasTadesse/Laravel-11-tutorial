@@ -2,6 +2,7 @@
 use App\Http\Controllers\ChirpController;
 use App\Http\Controllers\ProfileController;
 
+use App\Jobs\TranslateJob;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Arr;
@@ -12,10 +13,9 @@ use App\Http\Controllers\SessionController;
 
 Route::get('test', function () {
 
-    dispatch(function () {
-        logger('Hello from the queue');
-    })->delay(5);
-    
+    \App\Jobs\TranslateJob::dispatch(); 
+
+
     return 'welcome';
 });
 
