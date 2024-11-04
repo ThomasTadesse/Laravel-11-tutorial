@@ -15,7 +15,7 @@ class JobPosted extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $food = 'water';
+    public $food = 'water 2';
 
     /**
      * Create a new message instance.
