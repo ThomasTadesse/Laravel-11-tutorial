@@ -25,7 +25,7 @@ class SessionController extends Controller
         // if it fails, the following code will run
         if (!Auth::attempt($attributes)) {
             throw ValidationException::withMessages([
-                'email' => 'Your provided credentials could not be verified. Try again.',
+                'email' => 'Your provided credentials could not be verified. Try again later.',
             ]);
         }
 
