@@ -25,10 +25,10 @@ class RegisteredUserController extends Controller
        ]);
 
        // create user
-       User::create($attributes);
+       $user = User::create($attributes);
 
        // log in
-        Auth::login($attributes);
+        Auth::login($user);
 
        // redirect somewhere
          return redirect('/jobs');

@@ -32,6 +32,12 @@
 
             @endguest
 
+            @auth
+
+            <x-nav-link href="/logout">Log out</x-nav-link>
+
+            @endauth
+
        
 
           </div>
