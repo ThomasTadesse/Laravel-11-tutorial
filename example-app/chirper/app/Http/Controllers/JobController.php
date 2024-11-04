@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Job;
 use App\Models\Employer;
 use App\Models\User;
-use App\Providers\Gate;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 

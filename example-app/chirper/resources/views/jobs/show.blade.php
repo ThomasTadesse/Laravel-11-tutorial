@@ -9,8 +9,8 @@
     </p>
 
     @can('edit-job', $job)
-        <p>
-            <a href="/jobs/{{ $job->id }}/edit">Edit Job</a>
+        <p class="mt-6">
+            <x-button href="/jobs/{{ $job->id }}/edit">Edit Job</x-button>
         </p>
     @endcan
 
