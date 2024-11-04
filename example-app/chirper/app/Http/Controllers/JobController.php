@@ -65,13 +65,20 @@ class JobController extends Controller
 
     public function edit(job $job)
     {
+
+        Gate::define('edit-job', function (User $user, Job $job) {
+            return $job->employer->user->is($user);
+        });
+
+
         if (Auth::guest()) {
             return redirect('/login');
         }
 
-        if ($job->employer->user->isNot(Auth::user())) {
-            abort(403);
-        }
+        Gate::authorize('edit-job', $job);
+        // The authorize method will run with the logic associated with the name that you reference. 
+
+       
 
 
         return view('jobs.edit', ['job' => $job,]);
