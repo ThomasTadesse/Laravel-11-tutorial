@@ -29,6 +29,7 @@ class JobPosted extends Mailable
     {
         return new Envelope(
             subject: 'Job Posted',
+            from: 'admin@laravel.com'
         );
     }
 
