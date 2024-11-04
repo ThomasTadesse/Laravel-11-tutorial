@@ -7,6 +7,8 @@ use App\Models\Employer;
 use App\Models\User;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
+use App\Mail\JobPosted;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 
 class JobController extends Controller
@@ -55,12 +57,17 @@ class JobController extends Controller
             'description' => ['required'],
         ]);
     
-        Job::create([
+        $job = Job::create([
             'title' => request('title'),
             'description' => request('description'),
             'employer_id' => 1
         ]);
-    
+
+        Mail::to($job->employer->user)->send(
+            new JobPosted($job)
+        );
+        // Laravel will automatically grab the email off the user.
+
         return redirect('/jobs');
     }
 
