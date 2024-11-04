@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\ChirpController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Job;
 
 use App\Jobs\TranslateJob;
 use Illuminate\Support\Facades\Route;
@@ -13,7 +14,8 @@ use App\Http\Controllers\SessionController;
 
 Route::get('test', function () {
 
-    \App\Jobs\TranslateJob::dispatch(); 
+    $job = Job::first();
+    TranslateJob::dispatch($job); 
 
 
     return 'welcome';
