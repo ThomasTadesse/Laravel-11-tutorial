@@ -67,6 +67,7 @@ class JobController extends Controller
             new JobPosted($job)
         );
         // Laravel will automatically grab the email off the user.
+        // run php artisan queue:work to send the email.
 
         return redirect('/jobs');
     }
