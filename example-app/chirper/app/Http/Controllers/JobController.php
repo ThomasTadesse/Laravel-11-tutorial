@@ -67,9 +67,6 @@ class JobController extends Controller
     public function edit(job $job)
     {
 
-        Gate::authorize('edit-job', $job);
-        // The authorize method will run with the logic associated with the name that you reference. 
-
         return view('jobs.edit', ['job' => $job,]);
     }
 
@@ -81,7 +78,9 @@ class JobController extends Controller
         'description' => ['required'],
     ]);
 
-    // authorization (on hold for now.)
+    // authorization
+    Gate::authorize('edit-job', $job);
+
 
     $job->update([
         'title' => request('title'),
@@ -94,7 +93,11 @@ class JobController extends Controller
 
     public function destroy(job $job)
     {
-        ($job)->delete();
+        // authorize
+        Gate::authorize('edit-job', $job);
+        // a bit of a redundancy but it's good to have it.
+
+        $job->delete();
 
         return redirect('/jobs');   
     }
