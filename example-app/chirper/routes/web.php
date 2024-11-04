@@ -11,7 +11,7 @@ use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\SessionController;
 
 Route::get('test', function () {
-    \Illuminate\Support\Facades\Mail::to('328704@student.mboutrecht.nl')->send(
+    \Illuminate\Support\Facades\Mail::to('info@laravel.com')->send(
         new \App\Mail\JobPosted()
     );
 
