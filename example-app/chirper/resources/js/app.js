@@ -6,4 +6,4 @@ window.Alpine = Alpine;
 
 Alpine.start();
 
-alert('Hello from app.js!');
+// alert('Hello from app.js!');

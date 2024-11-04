@@ -11,8 +11,8 @@ export default {
 
     theme: {
         extend: {
-            fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+            colors: {
+                "Laravel": "#FF2D20",
             },
         },
     },
