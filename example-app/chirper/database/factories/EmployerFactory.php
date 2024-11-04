@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Employer;
 use App\Models\Job;
+use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
